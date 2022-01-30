@@ -2,6 +2,8 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
+			"$comp/*": ["src/components/site/*"],
+			"$compAdmin/*": ["src/components/admin/*"],
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"]
 		}
