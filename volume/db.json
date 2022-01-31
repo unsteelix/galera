@@ -1,108 +1,74 @@
 {
     "posts": {
-        "b6ef65b3ec998f": {
-            "id": "b6ef65b3ec998f",
-            "path": "/gfhgfhfgh",
-            "cover": "https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "background": "",
-            "title": "",
+        "08c86b1b788020": {
+            "id": "08c86b1b788020",
+            "fullPath": "old",
+            "path": "",
+            "cover": "075fe2a7c10cdf",
+            "background": "4aff712f695381?w=2000&h=800",
+            "title": "old",
             "date": "",
             "priority": 100,
-            "isFolder": false,
-            "toPage": "/",
+            "isFolder": true,
+            "toPage": "some-folder",
             "isHidden": false,
-            "data": "<p>edwedwe</p><p>очень класснй редат</p><p>===</p><p>i</p><p>dsfsdfsdf</p><p>===</p><p>dsfsdfsdfsdf</p><p>===</p><p>i</p><p>fdgfdgfdg</p><p>fdgfdgfdgfdg</p><p>fdgfdg</p><p>===</p><p>i</p><p>fdgfdg</p><p>===</p><p>fdggssgsss</p><p>qweqweqweqwe</p>"
+            "data": "<p>dsfdsf</p>"
         },
-        "17d1799f69a12f": {
-            "id": "17d1799f69a12f",
-            "path": "/",
-            "cover": "https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "a08c86b1b78802": {
+            "id": "a08c86b1b78802",
+            "fullPath": "old/den-vtoroj",
+            "path": "old",
+            "cover": "4aff712f695381?w=300&h=300",
             "background": "",
-            "title": "",
+            "title": "день второй",
             "date": "",
             "priority": 100,
             "isFolder": false,
-            "toPage": "/",
+            "toPage": "some-folder",
             "isHidden": false,
-            "data": "<p>ifdgffgdf</p><p>fghgfhfdg</p><h1>fdgdfgfdg</h1><ul><li>ffdg</li><li>fdgfd</li><li>gfdgfd</li><li><span style=\"background-color: rgb(255, 194, 102); color: rgb(255, 255, 255);\">fdgfdgdfg</span></li><li><span style=\"background-color: rgb(102, 163, 224); color: rgb(255, 255, 255);\">gfhgfhfgh</span></li></ul><p>===</p><p>v</p><p>sdfsdf</p>"
+            "data": "<p>ggggggggggggggggggggggggg</p>"
         },
-        "1e3f83706a71ee": {
-            "id": "1e3f83706a71ee",
-            "path": "/",
-            "cover": "https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "3a08c86b1b7880": {
+            "id": "3a08c86b1b7880",
+            "fullPath": "old/den-1",
+            "path": "old",
+            "cover": "4aff712f695381?w=300&h=300",
             "background": "",
-            "title": "",
+            "title": "день 1",
             "date": "",
             "priority": 100,
             "isFolder": false,
-            "toPage": "/",
-            "isHidden": false,
-            "data": "<p>fghfghdhfdgfd</p><p>fdgfdgfdgfdgfdg</p><p>dhd</p><p>ghdhdsfsdfdsfdsfdsfsdfsdf</p>"
-        },
-        "165e25628feab7": {
-            "id": "165e25628feab7",
-            "path": "/",
-            "cover": "692c8b5dd87848",
-            "background": "692c8b5dd87848",
-            "title": "",
-            "date": "",
-            "priority": 100,
-            "isFolder": false,
-            "toPage": "/",
-            "isHidden": false,
-            "data": "<p><strong>e1222wrewreeeweweewкуекуекуекуекуекуекуе</strong></p><p><strong>авпавпав</strong></p><p>====</p><p>i</p><p><span style=\"color: rgb(96, 109, 116);\">692c8b5dd87848</span></p><p><span style=\"color: rgb(96, 109, 116);\">1d43a5bce5ca86</span></p><p><span style=\"color: rgb(96, 109, 116);\">1d43a5bce5ca86</span></p><p>====</p><p>sdfsdf</p><p><br></p><h2>sdfsdfsdfdsf</h2><p><span style=\"background-color: rgb(255, 194, 102);\">fghfghfgh</span></p><p><span style=\"background-color: rgb(102, 163, 224); color: rgb(255, 255, 255);\">ghjghjghj</span></p><ul><li>sadasd</li><li>sadasdasdfffffd</li><li>ddddddddкпкпкпкпкпк</li></ul>"
-        },
-        "7165e25628feab": {
-            "id": "7165e25628feab",
-            "path": "/gtrry",
-            "cover": "https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "background": "",
-            "title": "",
-            "date": "",
-            "priority": 100,
-            "isFolder": false,
-            "toPage": "/",
-            "isHidden": false,
-            "data": "<p>tryrty</p>"
-        },
-        "79d50717dd28a3": {
-            "id": "79d50717dd28a3",
-            "path": "/bb",
-            "cover": "https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "background": "",
-            "title": "",
-            "date": "",
-            "priority": 100,
-            "isFolder": false,
-            "toPage": "/",
-            "isHidden": false,
-            "data": "<p><br></p>"
-        },
-        "80c9c8293908d0": {
-            "id": "80c9c8293908d0",
-            "path": "/dsfsdffdgfdgfdgfdgfdgfdg",
-            "cover": "https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "background": "",
-            "title": "",
-            "date": "",
-            "priority": 100,
-            "isFolder": false,
-            "toPage": "/",
+            "toPage": "some-folder",
             "isHidden": false,
             "data": ""
         },
-        "580c9c8293908d": {
-            "id": "580c9c8293908d",
-            "path": "/",
-            "cover": "https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "d3a08c86b1b788": {
+            "id": "d3a08c86b1b788",
+            "fullPath": "eshe-odin",
+            "path": "",
+            "cover": "4aff712f695381?w=300&h=300",
             "background": "",
-            "title": "",
+            "title": "еще один",
             "date": "",
             "priority": 100,
             "isFolder": false,
-            "toPage": "/",
+            "toPage": "some-folder",
+            "isHidden": true,
+            "data": ""
+        },
+        "bd3a08c86b1b78": {
+            "id": "bd3a08c86b1b78",
+            "fullPath": "kakoj-to-post",
+            "path": "",
+            "cover": "4aff712f695381?w=300&h=300",
+            "background": "",
+            "title": "какой-то пост",
+            "date": "",
+            "priority": 100,
+            "isFolder": false,
+            "toPage": "some-folder",
             "isHidden": false,
-            "data": "<p>dsfsdf</p>"
+            "data": "<p>hahaha kakoj-to-post</p><h2><span style=\"background-color: rgb(102, 163, 224); color: rgb(255, 255, 255);\">fghgfh</span></h2>"
         }
     }
 }

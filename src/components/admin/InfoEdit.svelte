@@ -2,6 +2,8 @@
 	import { uid } from 'uid';
 	import axios from 'axios';
 	import { onMount } from 'svelte';
+	import slugify from 'slugify';
+	import constants from '../../lib/utils/constants';
 
 	let listPost = [];
 
@@ -26,7 +28,8 @@
 
 	let newPost = () => ({
 		id: uid(14),
-		path: '/',
+		fullPath: '',
+		path: '',
 		cover:
 			'https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
 		background: '',
@@ -34,7 +37,7 @@
 		date: '',
 		priority: 100,
 		isFolder: false,
-		toPage: '/', // for folders
+		toPage: 'some-folder', // for folders
 		isHidden: false,
 		data: ''
 	});
@@ -75,7 +78,13 @@
 		listPost[i] = newPost;
 	};
 
-	$: console.log(listPost);
+	$: {
+		console.log(listPost);
+		listPost.forEach((post) => {
+			const { path, title } = post;
+			post['fullPath'] = (path ? `${path}/` : '') + slugify(title);
+		});
+	}
 </script>
 
 <div class="buttons">
@@ -84,10 +93,12 @@
 </div>
 
 <div class="posts">
-	{#each listPost as { id, path, cover, background, title, date, priority, isFolder, toPage, isHidden, data }, i (id)}
+	{#each listPost as { id, fullPath, path, cover, background, title, date, priority, isFolder, toPage, isHidden, data }, i (id)}
 		<div class="one-post">
 			<div class="cover">
-				<div class="cover-img-wrap"><img src={cover} alt={cover} /></div>
+				<div class="cover-img-wrap">
+					<img src={`${constants.picolaDomainImg}${cover}?w=300&h=300`} alt={cover} />
+				</div>
 				<div class="del-edit">
 					<div class="del-btn" on:click={() => delBtnClick(i)}>delete</div>
 					<a class="edit-btn" href={`/admin/post/${id}`}>edit</a>
@@ -97,6 +108,10 @@
 				<div class="one-detail">
 					<div class="detail-name">ID</div>
 					{id}
+				</div>
+				<div class="one-detail">
+					<div class="detail-name">full path</div>
+					{fullPath}
 				</div>
 				<div class="one-detail">
 					<div class="detail-name">path</div>
@@ -123,7 +138,7 @@
 					<input type="number" bind:value={priority} />
 				</div>
 				<div class="one-detail">
-					<div class="detail-name">folder</div>
+					<div class="detail-name">is folder</div>
 					<div on:click={() => onInputPostChange('isFolder', i, !listPost[i]['isFolder'])}>
 						{isFolder}
 					</div>
@@ -152,14 +167,13 @@
 	.posts {
 		border-top: 1px solid rgb(177, 177, 177);
 		border-bottom: 1px solid rgb(177, 177, 177);
-		padding: 20px 0;
 	}
 	.one-post {
 		display: flex;
 		justify-content: flex-start;
 		align-items: flex-start;
-		margin-bottom: 20px;
-		font-size: 22px;
+		padding: 20px 0;
+
 		border-bottom: 1px solid rgb(177, 177, 177);
 	}
 	.one-post:last-child {
@@ -191,8 +205,11 @@
 		align-items: flex-start;
 	}
 	.one-detail {
-		margin-bottom: 10px;
 		display: flex;
+
+		height: 30px;
+
+		color: #0e0e0e;
 	}
 	.detail-name {
 		width: 120px;

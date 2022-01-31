@@ -95,6 +95,13 @@
     esbuild "^0.13.15"
     tiny-glob "^0.2.9"
 
+"@sveltejs/adapter-node@^1.0.0-next.67":
+  version "1.0.0-next.67"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-node/-/adapter-node-1.0.0-next.67.tgz#6fa34af0bf9f3be7b7146c9c53d7459bc979151b"
+  integrity sha512-+LuLn91xARZsRANiQNIIDpMMncUTnP2pJc8tyL+FdpVvs5UtlvkYJpeCBPFqjjseRpIIbi8Slu89GCdrRXBDUg==
+  dependencies:
+    tiny-glob "^0.2.9"
+
 "@sveltejs/adapter-vercel@1.0.0-next.39":
   version "1.0.0-next.39"
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-vercel/-/adapter-vercel-1.0.0-next.39.tgz#b9b9af9ef83a409a7ce1d4ad4bcf7548f2d72b26"
@@ -103,9 +110,9 @@
     esbuild "^0.13.15"
 
 "@sveltejs/kit@next":
-  version "1.0.0-next.250"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.250.tgz#6fcde9b56f187e6118b2dc692143e71b3245abcc"
-  integrity sha512-8Ctaqgb+pdws06gfKDy+DfEIq3epbhQnRrdavVrG2rv+lr/qAqz788OX4RlriBliNBFPkpIPYy4ldLJ7yoAmyg==
+  version "1.0.0-next.251"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.251.tgz#66e36c3187353acf0165cdd7437ff6732a759f52"
+  integrity sha512-7GtUrUHqOa7ISo86PlICcMKcfGodOZwP9p7hXnN4t1yMWIQD2eKZlJffvnwx1X+NMcJ8hLChgcjGYjc1xZABhQ==
   dependencies:
     "@sveltejs/vite-plugin-svelte" "^1.0.0-next.32"
     sade "^1.7.4"
@@ -1123,6 +1130,11 @@ slice-ansi@^4.0.0:
     ansi-styles "^4.0.0"
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
+
+slugify@^1.6.5:
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.6.5.tgz#c8f5c072bf2135b80703589b39a3d41451fbe8c8"
+  integrity sha512-8mo9bslnBO3tr5PEVFzMPIWwWnipGS0xVbYf65zxDqfNwmzYn1LpiKNrR6DlClusuvo+hDHd1zKpmfAe83NQSQ==
 
 source-map-js@^1.0.1:
   version "1.0.2"

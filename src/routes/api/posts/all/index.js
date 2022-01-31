@@ -1,11 +1,10 @@
 import db from '$lib/database';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function post({ request, locals }) {
-	console.log('[API][POST] /posts/update');
+export async function get({ locals }) {
+	console.log('[API][GET] /posts/all');
 
 	const { isAdmin } = locals;
-	const data = await request.json();
 
 	if (!isAdmin) {
 		return {
@@ -13,11 +12,11 @@ export async function post({ request, locals }) {
 		};
 	}
 
-	const newData = await db.push(`/posts`, data);
+	const data = await db.get(`/posts`);
 
-	if (newData) {
+	if (data) {
 		return {
-			body: newData
+			body: data
 		};
 	}
 

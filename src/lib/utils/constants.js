@@ -31,7 +31,8 @@ export const quillOptions = {
 	}
 };
 
-export const picolaDomain = '//localhost:7400/i';
+export const picolaDomain = '//localhost:7400';
+export const picolaDomainImg = `${picolaDomain}/i/`;
 
 export const adminPass = '1234';
 
@@ -41,6 +42,7 @@ export default {
 	quillOptions,
 	quillToolbarOptions,
 	picolaDomain,
+	picolaDomainImg,
 	adminPass,
 	token
 };

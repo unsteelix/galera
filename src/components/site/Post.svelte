@@ -3,11 +3,12 @@
 	import TextBL from '../site/blocks/Text.svelte';
 	import ImageBL from '../site/blocks/Image.svelte';
 	import VideoBL from '../site/blocks/Video.svelte';
+	import utils from '../../lib/utils';
 
 	export let post;
 	export let isAdmin = false;
 
-	const width = isAdmin ? 600 : window.document.body.clientWidth;
+	let width = isAdmin ? 600 : 1200; // window.document.body.clientWidth;
 	const divider = '<p>===</p>';
 	const imageMark = '<p>i</p>';
 	const videoMark = '<p>v</p>';
@@ -74,9 +75,22 @@
 
 		return res;
 	};
+
+	// const onWindowLoad = (event) => {
+	// 	let key = event.key;
+	// 	let keyCode = event.keyCode;
+	// 	console.log('ddddddddddddddd', event);
+	// };
 </script>
 
+<svelte:window
+	on:resize|once={() => {
+		width = window.document.body.clientWidth;
+	}}
+/>
+
 <div class="post">
+	w:{width}
 	<div class="cover">
 		<img src={`${CONSTANTS.picolaDomain}/${background}?f=webp&q=80&w=${width}`} alt={background} />
 	</div>

@@ -4,11 +4,9 @@
 
 <style>
 	.header {
-		position: relative;
+		position: fixed;
 		top: 0;
 		left: 0;
-		width: 100%;
-		background-color: cornflowerblue;
 		color: whitesmoke;
 		font-size: 30px;
 		padding: 5px 10px;
@@ -21,6 +19,6 @@
 		position: relative;
 		left: 0;
 		text-decoration: none;
-		color: whitesmoke;
+		color: cornflowerblue;
 	}
 </style>

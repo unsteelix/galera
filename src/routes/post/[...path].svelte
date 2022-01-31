@@ -1,49 +1,72 @@
 <script context="module">
-	//import DB from '../../lib/database';
+	//export const router = false;
+	import utils from '../../lib/utils';
 
 	/** @type {import('@sveltejs/kit').Load} */
 	export async function load({ params, fetch, session, stuff }) {
 		const { path } = params;
 
-		//const allPosts = DB.get('/posts');
+		// console.log('\n\n--path:', path);
+		// console.log('\n\n--params:', params);
+		// console.log('\n\n--fetch:', fetch);
+		// console.log('\n\n--session:', session);
+		// console.log('\n\n--stuff:', stuff);
 
-		console.log('\n\n--params:', params, '-\n\n');
-		console.log('\n\n--fetch:', fetch, '-\n\n');
-		console.log('\n\n--session:', session, '-\n\n');
-		console.log('\n\n--stuff:', stuff, '-\n\n');
+		const { isAdmin } = session;
+		const allPosts = await (await fetch('/api/posts')).json();
 
-		const url = `/api/posts`;
-		const allPosts = await (await fetch(url)).json();
+		let filteredPosts = {};
 
-		// //console.log('\n\n--allPosts:', allPosts, '-\n\n');
-
-		let posts = {};
-
-		for (let id in allPosts) {
-			const post = allPosts[id];
-			if (!post.isHidden) {
-				posts[id] = post;
+		if (isAdmin) {
+			filteredPosts = allPosts;
+		} else {
+			for (let id in allPosts) {
+				const post = allPosts[id];
+				if (!post.isHidden) {
+					filteredPosts[id] = post;
+				}
 			}
 		}
 
-		//console.log('\n\n--awailable:', posts, '-\n\n');
-
 		return {
 			props: {
-				posts
+				posts: filteredPosts,
+				path,
+				time: Date.now()
 			}
 		};
-
-		// return {
-		// 	status: res.status,
-		// 	error: new Error(`Could not load ${url}`)
-		// };
 	}
 </script>
 
 <script>
+	import ListPost from '../../components/site/ListPost.svelte';
+	import Post from '../../components/site/Post.svelte';
+
 	export let posts;
-	//console.log(posts);
+	export let path;
+	export let time;
+
+	let pageType = utils.pageType({ posts, path });
+
+	let map = {
+		post: Post,
+		folder: ListPost
+	};
+
+	//console.log('pageType: ', pageType);
+
+	//const isLeaf = utils.isLeaf({ posts, path });
+
+	//console.log(isLeaf, path, posts);
 </script>
 
-<h1>sdasdsad</h1>
+<!-- {#if pageType && pageType.type === 'post'}
+	<svelte:component this={map[pageType.type]} post={pageType.payload} posts={pageType.payload} />
+{/if} -->
+
+TIME: {time}
+{#if pageType && pageType.type === 'post'}
+	<Post post={pageType.payload} />
+{:else if pageType && pageType.type === 'folder'}
+	<ListPost posts={pageType.payload} />
+{/if}

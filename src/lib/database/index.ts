@@ -24,7 +24,7 @@ class Database {
 	}
 
 	get(path: string) {
-		console.log('[DB] GET ' + path);
+		//console.log('[DB] GET ' + path);
 
 		try {
 			const data = this.db.getData(path);
@@ -38,7 +38,7 @@ class Database {
 
 	push(path: string, data: any) {
 		console.log('[DB] PUSH ' + path);
-		console.log(data);
+		//console.log(data);
 
 		try {
 			this.db.push(path, data);
@@ -51,7 +51,7 @@ class Database {
 
 	merge(path: string, data: any) {
 		console.log('[DB] MERGE ' + path);
-		console.log(data);
+		//console.log(data);
 
 		try {
 			this.db.push(path, data, false);
