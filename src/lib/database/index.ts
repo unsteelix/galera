@@ -1,5 +1,5 @@
 import { JsonDB } from 'node-json-db';
-import { Config } from 'node-json-db/dist/lib/JsonDBConfig';
+import { Config } from 'node-json-db/dist/lib/JsonDBConfig.js';
 
 const dbFilePath = './volume/db.json';
 
