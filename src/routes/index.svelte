@@ -3,14 +3,14 @@
 
 	/** @type {import('@sveltejs/kit').Load} */
 	export async function load({ params, fetch, session, stuff }) {
+		const { path } = params;
 		const posts = await (await fetch('/api/posts')).json();
 
-		const { isAdmin } = session;
-		let filteredPosts = utils.filterPosts({ posts, isAdmin });
+		const pageType = utils.pageType({ posts, path });
 
 		return {
 			props: {
-				posts: filteredPosts
+				posts: pageType.payload
 			}
 		};
 	}

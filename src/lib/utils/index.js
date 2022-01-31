@@ -1,5 +1,4 @@
 import constants from './constants';
-import slugify from 'slugify';
 
 export const isAdminPass = (pass) => constants.adminPass === pass;
 
@@ -25,6 +24,23 @@ export const pageType = ({ posts, path }) => {
 			}
 		}
 	}
+
+	// main page
+	if (!path) {
+		let payload = {};
+		for (let id in posts) {
+			let post = posts[id];
+			if (!post.path) {
+				payload[id] = post;
+			}
+		}
+		return {
+			type: 'folder',
+			payload
+		};
+	}
+
+	console.log(`PATH [${path}]`);
 
 	// folder
 	let payload = {};

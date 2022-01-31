@@ -1,4 +1,5 @@
 import db from '$lib/database';
+import utils from '$lib/utils';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ locals }) {
@@ -6,22 +7,15 @@ export async function get({ locals }) {
 
 	const { isAdmin } = locals;
 
-	const data = await db.get(`/posts`);
+	const posts = await db.get(`/posts`);
 
-	if (data) {
+	if (posts) {
 		if (isAdmin) {
 			return {
-				body: data
+				body: posts
 			};
 		} else {
-			let filtered = {};
-
-			for (let id in data) {
-				let post = data[id];
-				if (!post.isHidden) {
-					filtered[id] = post;
-				}
-			}
+			let filtered = utils.filterPosts({ posts, isAdmin });
 
 			return {
 				body: filtered

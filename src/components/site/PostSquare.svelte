@@ -5,7 +5,7 @@
 </script>
 
 <div class="post">
-	<a href={'sss' + post.fullPath + ''} alt={`/post/${post.fullPath}`}>
+	<a href={`/post/${post.fullPath}`} alt={`/post/${post.fullPath}`}>
 		<img
 			class="cover"
 			src={`${constants.picolaDomainImg}${post.cover}?w=300&h=300`}

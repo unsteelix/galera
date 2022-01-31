@@ -8,7 +8,7 @@
 	let listPost = [];
 
 	onMount(async () => {
-		const res = await axios('/api/posts');
+		const res = await axios('/api/posts/all');
 		const { data } = res;
 
 		listPost = objToList(data);
@@ -30,8 +30,7 @@
 		id: uid(14),
 		fullPath: '',
 		path: '',
-		cover:
-			'https://images.unsplash.com/photo-1642970047663-3010fe472192?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+		cover: '',
 		background: '',
 		title: '',
 		date: '',
