@@ -1,4 +1,4 @@
-import db from '$lib/database';
+import db from '../../../../lib/database';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ locals }) {
