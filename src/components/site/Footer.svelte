@@ -18,7 +18,7 @@
 {#if !isPostEditPage}
 	<div class="footer">
 		<div class="left">
-			<div class="size">{w}</div>
+			<div class="size">{w}:{h}</div>
 			<Auth {isAdmin} />
 		</div>
 		<div class="central">

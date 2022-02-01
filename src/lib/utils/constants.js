@@ -19,8 +19,9 @@ export const quillToolbarOptions = [
 ];
 
 export const quillOptions = {
-	placeholder: 'Write something from outside...',
+	placeholder: 'Write something...',
 	theme: 'snow',
+	plainclipboard: false,
 	modules: {
 		toolbar: quillToolbarOptions,
 		history: {

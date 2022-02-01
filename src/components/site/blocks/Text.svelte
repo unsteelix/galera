@@ -1,8 +1,10 @@
 <script>
+	import { marked } from 'marked';
+
 	export let data;
 </script>
 
-<div class="text-block">{@html data}</div>
+<div class="text-block">{@html marked(data)}</div>
 
 <style>
 	.text-block {

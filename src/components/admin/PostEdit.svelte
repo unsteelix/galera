@@ -1,24 +1,48 @@
 <script>
-	import { quill } from 'svelte-quill';
+	//import { quill } from 'svelte-quill';
+	//import { Editor } from '@tadashi/svelte-editor-quill';
+	// //import Editor from 'tailwind-editor';
+	// import 'bytemd/dist/index.min.css';
+	// import { Editor, Viewer } from 'bytemd';
+	// //import gfm from '@bytemd/plugin-gfm';
+	import { marked } from 'marked';
+
 	import axios from 'axios';
 	import { onMount } from 'svelte';
 	import Post from '../site/Post.svelte';
-	import CONSTANTS from '../../lib/utils/constants';
+	import CONSTANTS from '$lib/utils/constants';
 
-	const id = window.location.pathname.split('/').pop();
-	$: post = {};
-	let initHtml = '';
+	$: post = {
+		...post,
+		data: source
+	};
+	let id;
+	let source = '';
 
 	let isLoading = true;
 
 	onMount(async () => {
+		id = window.location.pathname.split('/').pop();
+
 		const res = await axios(`/api/post/${id}`);
+
 		const { data } = res;
 
-		post = data;
-		initHtml = data.data;
-		isLoading = false;
+		if (res.status === 200) {
+			post = data;
+			source = post.data;
+
+			isLoading = false;
+		}
 	});
+
+	const onChange = (event) => {
+		console.log(event.detail.html);
+		post = {
+			...post,
+			data: event.detail.html
+		};
+	};
 
 	const saveBtn = async () => {
 		const res = await axios({
@@ -26,38 +50,41 @@
 			url: `/api/post/update/${id}`,
 			data: post
 		});
-
 		const { data } = res;
 		console.log(data);
 		window.location.reload();
 	};
+
+	$: {
+		// let markdown = marked(source);
+		// console.log(source);
+		// post = {
+		// 	...post,
+		// 	data: source
+		// };
+		console.log(post);
+	}
+	// $: console.log(markdown);
 </script>
 
-<svelte:head>
-	<link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css" />
-	<link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.bubble.css" />
-</svelte:head>
+<!-- <svelte:head>
+	<link rel="preconnect" href="https://cdn.quilljs.com" crossorigin />
+	<link rel="stylesheet" href="https://cdn.quilljs.com/1.3.7/quill.snow.css" />
+	<link rel="stylesheet" href="https://cdn.quilljs.com/1.3.7/quill.bubble.css" />
+</svelte:head> -->
 
 <div>
 	<div class="editor-block">
-		<div class="left-block">
-			{#if isLoading}
-				Loading...
-			{:else}
-				<div
-					class="editor"
-					use:quill={CONSTANTS.quillOptions}
-					on:text-change={(e) => {
-						post = { ...post, data: e.detail.html };
-					}}
-				>
-					{@html initHtml}
-				</div>
-			{/if}
-		</div>
-		<div class="right-block">
-			<Post {post} isAdmin={true} />
-		</div>
+		{#if isLoading}
+			Loading...
+		{:else}
+			<div class="left-block">
+				<textarea bind:value={source} />
+			</div>
+			<div class="right-block">
+				<Post {post} isAdmin={true} />
+			</div>
+		{/if}
 	</div>
 
 	<div class="save-btn" on:click={saveBtn}>save</div>
@@ -78,7 +105,7 @@
 		border: none;
 	}
 	.right-block {
-		width: 1200px;
+		width: 600px;
 		overflow: auto;
 		height: calc(100vh - 120px);
 		border-left: 1px solid grey;
@@ -94,5 +121,10 @@
 		justify-content: center;
 		align-items: center;
 		height: 60px;
+	}
+	textarea {
+		width: 100%;
+		height: 100%;
+		border: 1px solid gainsboro;
 	}
 </style>

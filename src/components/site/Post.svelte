@@ -4,6 +4,7 @@
 	import ImageBL from '../site/blocks/Image.svelte';
 	import VideoBL from '../site/blocks/Video.svelte';
 	import { onMount } from 'svelte';
+	import { marked } from 'marked';
 
 	export let post;
 	export let isAdmin = false;
@@ -11,9 +12,12 @@
 	let width = null;
 	let height = null;
 
-	const divider = '<p>===</p>';
-	const imageMark = '<p>i</p>';
-	const videoMark = '<p>v</p>';
+	const divider = '===';
+	const imageMark = 'i';
+	const videoMark = 'v';
+	// const divider = '<p>===</p>';
+	// const imageMark = '<p>i</p>';
+	// const videoMark = '<p>v</p>';
 
 	$: id = post.id;
 	$: title = post.title;
@@ -29,17 +33,17 @@
 
 	$: blocks = rawHtmlToBlocks(data);
 
-	const rawHtmlToBlocks = (rawHtml) => {
+	const rawHtmlToBlocks = (source) => {
 		let res = [];
 
-		if (rawHtml) {
-			res = rawHtml.split(divider).map((block) => {
+		if (source) {
+			res = source.split(divider).map((block) => {
 				if (block.indexOf(imageMark) === 0) {
+					// image
 					let list = [];
 					block
 						.substr(imageMark.length)
-						.replace(/(<([^>]+)>)/gi, '$@')
-						.split('$@')
+						.split('\n')
 						.forEach((el) => {
 							if (el) {
 								list.push(el.trim());
@@ -51,11 +55,11 @@
 						value: list
 					};
 				} else if (block.indexOf(videoMark) === 0) {
+					// video
 					let list = [];
 					block
 						.substr(videoMark.length)
-						.replace(/(<([^>]+)>)/gi, '$@')
-						.split('$@')
+						.split('\n')
 						.forEach((el) => {
 							if (el) {
 								list.push(el.trim());
@@ -67,6 +71,7 @@
 						value: list
 					};
 				} else {
+					// text
 					return {
 						type: 'text',
 						value: block
@@ -74,6 +79,49 @@
 				}
 			});
 		}
+
+		// if (rawHtml) {
+		// 	res = rawHtml.split(divider).map((block) => {
+		// 		if (block.indexOf(imageMark) === 0) {
+		// 			let list = [];
+		// 			block
+		// 				.substr(imageMark.length)
+		// 				.replace(/(<([^>]+)>)/gi, '$@')
+		// 				.split('$@')
+		// 				.forEach((el) => {
+		// 					if (el) {
+		// 						list.push(el.trim());
+		// 					}
+		// 				});
+
+		// 			return {
+		// 				type: 'image',
+		// 				value: list
+		// 			};
+		// 		} else if (block.indexOf(videoMark) === 0) {
+		// 			let list = [];
+		// 			block
+		// 				.substr(videoMark.length)
+		// 				.replace(/(<([^>]+)>)/gi, '$@')
+		// 				.split('$@')
+		// 				.forEach((el) => {
+		// 					if (el) {
+		// 						list.push(el.trim());
+		// 					}
+		// 				});
+
+		// 			return {
+		// 				type: 'video',
+		// 				value: list
+		// 			};
+		// 		} else {
+		// 			return {
+		// 				type: 'text',
+		// 				value: block
+		// 			};
+		// 		}
+		// 	});
+		// }
 
 		return res;
 	};
@@ -121,6 +169,9 @@ h:{height} -->
 {/if}
 
 <style>
+	.post {
+		width: 100%;
+	}
 	.cover {
 		position: relative;
 		width: 100%;
