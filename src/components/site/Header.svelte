@@ -14,7 +14,6 @@
 <div class="header">
 	<!-- <a href="/">Logo</a> -->
 	<img class="logo" src="/logo.svg" alt="logo" on:click={() => (window.location.href = '/')} />
-
 	<!-- <div class="logo" on:click={() => (window.location.href = '/')}>Logo</div> -->
 </div>
 

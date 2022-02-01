@@ -32,7 +32,7 @@ export const quillOptions = {
 	}
 };
 
-export const picolaDomain = '//localhost:7400';
+export const picolaDomain = 'http://localhost:7400';
 export const picolaDomainImg = `${picolaDomain}/i/`;
 
 export const adminPass = '1234';
