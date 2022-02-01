@@ -1,18 +1,21 @@
-<!-- <script>
-	import { onMount } from 'svelte';
+<script>
+	//import Logo from '../../../static/logo.svelte';
+	// import { onMount } from 'svelte';
 
-	let w = null;
-	let h = null;
+	// let w = null;
+	// let h = null;
 
-	onMount(async () => {
-		w = window.document.body.clientWidth;
-		h = window.document.body.clientHeight;
-	});
-</script> -->
+	// onMount(async () => {
+	// 	w = window.document.body.clientWidth;
+	// 	h = window.document.body.clientHeight;
+	// });
+</script>
 
 <div class="header">
 	<!-- <a href="/">Logo</a> -->
-	<div class="logo" on:click={() => (window.location.href = '/')}>Logo</div>
+	<img class="logo" src="/logo.svg" alt="logo" on:click={() => (window.location.href = '/')} />
+
+	<!-- <div class="logo" on:click={() => (window.location.href = '/')}>Logo</div> -->
 </div>
 
 <style>
@@ -27,15 +30,16 @@
 	}
 	.header:hover a,
 	.header:hover .logo {
-		left: 20px;
+		left: 0px;
 		transition: 0.2s all;
 	}
 	a,
 	.logo {
 		position: relative;
-		left: 0;
+		left: -50px;
 		text-decoration: none;
 		color: cornflowerblue;
 		cursor: pointer;
+		width: 40px;
 	}
 </style>

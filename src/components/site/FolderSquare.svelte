@@ -1,5 +1,6 @@
 <script>
 	import constants from '../../lib/utils/constants';
+	//import FolderIcon from 'folder.png';
 
 	export let post = {};
 </script>
@@ -11,7 +12,8 @@
 			src={`${constants.picolaDomainImg}${post.cover}?w=300&h=300`}
 			alt={post.title}
 		/>
-		<div class="title">[{post.title}]</div>
+		<div class="title">{post.title}</div>
+		<img class="folder-icon" src={'folder.png'} alt="folder" />
 	</a>
 </div>
 
@@ -19,7 +21,6 @@
 	.folder {
 		width: 100%;
 		height: 100%;
-		border: 2px solid gainsboro;
 		position: relative;
 	}
 	.title {
@@ -39,5 +40,17 @@
 	.cover {
 		max-width: 300px;
 		max-height: 300px;
+	}
+	.folder-icon {
+		position: absolute;
+		bottom: 0px;
+		color: white;
+		background-color: white;
+		border-radius: 7px;
+		padding: 5px;
+		width: 40px;
+		left: 10px;
+		bottom: 10px;
+		opacity: 0.98;
 	}
 </style>

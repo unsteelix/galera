@@ -192,7 +192,7 @@ h:{height} -->
 	.cover .date {
 		position: absolute;
 		width: 100%;
-		top: 55vh;
+		top: 60vh;
 		color: white;
 		font-size: 50px;
 		text-align: center;

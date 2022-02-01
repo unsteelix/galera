@@ -1,0 +1,12 @@
+services:
+  picola:
+    build:
+      context: .
+    ports:
+      - 7900:3000
+    volumes:
+      - galera_volume:/app/volume
+    restart: always
+
+volumes:
+  galera_volume:

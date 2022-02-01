@@ -7,7 +7,7 @@
 
 <img
 	class="wide-img"
-	src={`${constants.picolaDomainImg}${value}?f=webp&q=80&w=${width}`}
+	src={`${constants.picolaDomainImg}${value}?f=webp&q=100&w=${width}`}
 	alt={value}
 />
 

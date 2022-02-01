@@ -22,15 +22,15 @@
 			<Auth {isAdmin} />
 		</div>
 		<div class="central">
-			<a href="/">home</a>
-			<a href="/about">about</a>
-			<a href="/admin">admin</a>
+			<a href="/">Home</a>
+			<a href="/about">About</a>
+			<a href="/admin">Admin</a>
 		</div>
 	</div>{/if}
 
 <style>
 	.footer {
-		background-color: rgba(0, 0, 0, 0.89);
+		background-color: rgb(32 32 32);
 		color: whitesmoke;
 		padding: 10px;
 		width: 100%;

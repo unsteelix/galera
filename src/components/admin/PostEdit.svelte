@@ -11,6 +11,7 @@
 	import { onMount } from 'svelte';
 	import Post from '../site/Post.svelte';
 	import CONSTANTS from '$lib/utils/constants';
+	import Upload from './Upload.svelte';
 
 	$: post = {
 		...post,
@@ -65,6 +66,9 @@
 		console.log(post);
 	}
 	// $: console.log(markdown);
+	let uploadCallback = (data) => {
+		source = source + '\n' + data;
+	};
 </script>
 
 <!-- <svelte:head>
@@ -86,22 +90,22 @@
 			</div>
 		{/if}
 	</div>
-
+	<Upload bind:uploadCallback />
 	<div class="save-btn" on:click={saveBtn}>save</div>
 </div>
 
 <style>
 	.editor-block {
 		display: flex;
-		height: calc(100vh - 120px);
+		height: calc(100vh - 168px);
 	}
 	.left-block {
 		width: 500px;
 		min-width: 500px;
-		height: calc(100vh - 120px);
+		height: calc(100vh - 168px);
 	}
 	.left-block .editor {
-		height: calc(100vh - 212px);
+		height: calc(100vh - 260px);
 		border: none;
 	}
 	.right-block {
@@ -125,6 +129,7 @@
 	textarea {
 		width: 100%;
 		height: 100%;
-		border: 1px solid gainsboro;
+		border-left: 1px solid gainsboro;
+		padding: 20px;
 	}
 </style>
