@@ -2,4 +2,10 @@
 	export let data;
 </script>
 
-<div>{@html data}</div>
+<div class="text-block">{@html data}</div>
+
+<style>
+	.text-block {
+		margin-top: 20vh;
+	}
+</style>

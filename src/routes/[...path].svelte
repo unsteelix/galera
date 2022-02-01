@@ -26,8 +26,6 @@
 	export let path;
 
 	let pageType = utils.pageType({ posts, path });
-
-	console.log('COOL ROUTE: ', pageType);
 </script>
 
 <ListPost posts={pageType.payload} />

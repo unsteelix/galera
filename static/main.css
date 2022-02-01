@@ -7,3 +7,11 @@ html {
 body {
 	font-family: 'Lato', sans-serif;
 }
+
+#svelte {
+	overflow: hidden;
+}
+
+.ql-toolbar {
+	border: none;
+}

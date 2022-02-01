@@ -7,14 +7,15 @@ export async function get({ params, request }) {
 
 	const { pass } = params;
 
-	console.log('PASS: ', pass);
+	console.log('pass: ', pass);
 
 	if (utils.isAdminPass(pass)) {
 		return {
 			status: 200,
 			headers: {
 				'Set-Cookie': `token=${constants.token}; Path=/`
-			}
+			},
+			body: constants.token
 		};
 	}
 

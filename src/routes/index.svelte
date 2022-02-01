@@ -20,8 +20,6 @@
 	import ListPost from '../components/site/ListPost.svelte';
 
 	export let posts;
-
-	console.log('MAIN PAGE: ', posts);
 </script>
 
 <ListPost {posts} />

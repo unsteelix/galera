@@ -3,12 +3,14 @@
 	import TextBL from '../site/blocks/Text.svelte';
 	import ImageBL from '../site/blocks/Image.svelte';
 	import VideoBL from '../site/blocks/Video.svelte';
-	import utils from '../../lib/utils';
+	import { onMount } from 'svelte';
 
 	export let post;
 	export let isAdmin = false;
 
-	let width = isAdmin ? 600 : 1200; // window.document.body.clientWidth;
+	let width = null;
+	let height = null;
+
 	const divider = '<p>===</p>';
 	const imageMark = '<p>i</p>';
 	const videoMark = '<p>v</p>';
@@ -76,27 +78,82 @@
 		return res;
 	};
 
-	// const onWindowLoad = (event) => {
-	// 	let key = event.key;
-	// 	let keyCode = event.keyCode;
-	// 	console.log('ddddddddddddddd', event);
-	// };
+	onMount(async () => {
+		let isAdminPage = window.location.pathname.includes('/admin/post') || false;
+
+		width = isAdminPage
+			? 800 //document.querySelector('.right-block').clientWidth
+			: window.document.body.clientWidth;
+		height = window.document.body.clientHeight;
+	});
 </script>
 
-<svelte:window
+<!-- <svelte:window
 	on:resize|once={() => {
 		width = window.document.body.clientWidth;
 	}}
-/>
+/> -->
+<!-- w:{width}
+h:{height} -->
 
-<div class="post">
-	w:{width}
-	<div class="cover">
-		<img src={`${CONSTANTS.picolaDomain}/${background}?f=webp&q=80&w=${width}`} alt={background} />
+{#if width}
+	<div class="post">
+		<div class="cover">
+			<img
+				src={`${CONSTANTS.picolaDomainImg}${background}?f=webp&q=80&w=${width}&h=${height}`}
+				alt={background}
+			/>
+			{#if title}
+				<div class="title">{title}</div>
+			{/if}
+			{#if date}
+				<div class="date">{date}</div>
+			{/if}
+		</div>
+		<div class="list-block">
+			{#each blocks as block}
+				<div class="one-block">
+					<svelte:component this={map[block.type]} data={block.value} {width} {height} />
+				</div>
+			{/each}
+		</div>
 	</div>
-	<div class="list-block">
-		{#each blocks as block}
-			<svelte:component this={map[block.type]} data={block.value} />
-		{/each}
-	</div>
-</div>
+{/if}
+
+<style>
+	.cover {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+	}
+	.cover img {
+		width: 100%;
+		height: 100%;
+	}
+	.cover .title {
+		position: absolute;
+		width: 100%;
+		top: 50vh;
+		color: white;
+		font-size: 40px;
+		text-align: center;
+	}
+	.cover .date {
+		position: absolute;
+		width: 100%;
+		top: 55vh;
+		color: white;
+		font-size: 50px;
+		text-align: center;
+	}
+	.list-block {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: 20vh;
+	}
+	.one-block {
+	}
+</style>

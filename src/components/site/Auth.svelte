@@ -1,4 +1,6 @@
 <script>
+	import Cookies from 'js-cookie';
+
 	export let isAdmin;
 	let editMode = false;
 
@@ -7,15 +9,16 @@
 
 		const res = await fetch(`/api/auth/${val}`);
 		if (res.ok) {
-			await res.json();
+			const token = await res.text();
+
+			Cookies.set('token', token, { expires: 7 });
 			isAdmin = true;
 			window.location.reload();
 		}
 	};
 
 	const logoutBtn = () => {
-		const name = 'token';
-		document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		Cookies.remove('token');
 		isAdmin = false;
 		window.location.reload();
 	};
@@ -35,7 +38,7 @@
 			{#if editMode}
 				<input on:keyup={onInputChange} use:initInput />
 			{:else}
-				login
+				<div class="login-btn">login</div>
 			{/if}
 		</div>
 	{/if}
@@ -48,8 +51,10 @@
 		text-align: center;
 		width: 120px;
 	}
-	.logout-btn {
+	.logout-btn,
+	.login-btn {
 		color: white;
+		cursor: pointer;
 	}
 	input {
 		width: 100%;

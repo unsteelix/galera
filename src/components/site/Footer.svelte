@@ -1,18 +1,32 @@
 <script>
 	import Auth from '$comp/Auth.svelte';
+	import { onMount } from 'svelte';
+
 	export let isAdmin;
+
+	let isPostEditPage = false;
+	let w = null;
+	let h = null;
+
+	onMount(() => {
+		isPostEditPage = window.location.pathname.includes('/admin/post');
+		w = window.document.body.clientWidth;
+		h = window.document.body.clientHeight;
+	});
 </script>
 
-<div class="footer">
-	<div class="left">
-		<Auth {isAdmin} />
-	</div>
-	<div class="central">
-		<a href="/">home</a>
-		<a href="/about">about</a>
-		<a href="/admin">admin</a>
-	</div>
-</div>
+{#if !isPostEditPage}
+	<div class="footer">
+		<div class="left">
+			<div class="size">{w}</div>
+			<Auth {isAdmin} />
+		</div>
+		<div class="central">
+			<a href="/">home</a>
+			<a href="/about">about</a>
+			<a href="/admin">admin</a>
+		</div>
+	</div>{/if}
 
 <style>
 	.footer {
@@ -35,5 +49,9 @@
 	.left {
 		position: absolute;
 		left: 20px;
+		display: flex;
+	}
+	.size {
+		margin-right: 20px;
 	}
 </style>

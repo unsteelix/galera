@@ -39,7 +39,6 @@
 </svelte:head>
 
 <div>
-	<div class="save-btn" on:click={saveBtn}>save</div>
 	<div class="editor-block">
 		<div class="left-block">
 			{#if isLoading}
@@ -60,28 +59,40 @@
 			<Post {post} isAdmin={true} />
 		</div>
 	</div>
+
 	<div class="save-btn" on:click={saveBtn}>save</div>
 </div>
 
 <style>
 	.editor-block {
 		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: flex-start;
+		height: calc(100vh - 120px);
 	}
-	.left-block,
+	.left-block {
+		width: 500px;
+		min-width: 500px;
+		height: calc(100vh - 120px);
+	}
+	.left-block .editor {
+		height: calc(100vh - 212px);
+		border: none;
+	}
 	.right-block {
-		width: 100%;
-		min-width: 600px;
-		max-width: 1000px;
+		width: 1200px;
+		overflow: auto;
+		height: calc(100vh - 120px);
+		border-left: 1px solid grey;
+		overflow-x: hidden;
 	}
 	.save-btn {
 		background-color: cornflowerblue;
 		color: whitesmoke;
 		font-size: 28px;
 		text-align: center;
-		padding: 14px 40px;
 		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 60px;
 	}
 </style>
