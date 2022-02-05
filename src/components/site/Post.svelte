@@ -135,7 +135,7 @@
 		height = window.document.body.clientHeight;
 	});
 
-	$: mainImgUrl = `${CONSTANTS.picolaDomainImg}${background}?f=webp&q=90`;
+	$: mainImgUrl = `${CONSTANTS.picolaDomainImg}${background}?f=webp&w=1920&q=90`;
 </script>
 
 <!-- 
