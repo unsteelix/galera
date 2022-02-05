@@ -30,20 +30,21 @@
 
 <style>
 	.footer {
-		background-color: rgb(32 32 32);
-		color: whitesmoke;
+		display: flex;
+		justify-content: center;
+
 		padding: 10px;
 		width: 100%;
 		font-size: 30px;
-		display: flex;
-		justify-content: center;
+		border-top: 1px solid #c7c7c7;
+		font-size: 1rem;
 	}
 	.central {
 		text-align: center;
 	}
 	a {
 		text-decoration: none;
-		color: whitesmoke;
+
 		margin: 20px;
 	}
 	.left {

@@ -78,7 +78,7 @@
 	};
 
 	$: {
-		console.log(listPost);
+		//console.log(listPost);
 		listPost.forEach((post) => {
 			const { path, title } = post;
 			post['fullPath'] = (path ? `${path}/` : '') + slugify(title);
@@ -142,10 +142,10 @@
 						{isFolder}
 					</div>
 				</div>
-				<div class="one-detail">
+				<!-- <div class="one-detail">
 					<div class="detail-name">folder path</div>
 					<input type="text" bind:value={toPage} />
-				</div>
+				</div> -->
 				<div class="one-detail">
 					<div class="detail-name">hidden</div>
 					<div on:click={() => onInputPostChange('isHidden', i, !listPost[i]['isHidden'])}>

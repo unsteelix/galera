@@ -28,7 +28,6 @@
 
 <style>
 	.list-post {
-		margin: 7vw 0;
 		width: 100%;
 		max-width: 1400px;
 

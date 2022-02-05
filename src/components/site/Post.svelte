@@ -150,6 +150,7 @@ h:{height} -->
 			<img
 				src={`${CONSTANTS.picolaDomainImg}${background}?f=webp&q=80&w=${width}&h=${height}`}
 				alt={background}
+				decoding="sync"
 			/>
 			{#if title}
 				<div class="title">{title}</div>

@@ -7,10 +7,11 @@
 	let imgHeight = Math.round(height - 2 * ((height / 100) * 10));
 
 	const source = value.replace('fullh', '').replace('fullH', '').trim();
-	const url = `${constants.picolaDomainImg}${source}?f=webp&q=80&h=${imgHeight}`;
+	const src = `${constants.picolaDomainImg}${source}?f=webp&q=${constants.imgQuality}&h=${imgHeight}`;
+	const alt = src;
 </script>
 
-<img class="fullh-img" style={`height: ${imgHeight};`} src={url} alt={value} />
+<img class="fullh-img" style={`height: ${imgHeight};`} {src} {alt} />
 
 <style>
 	.fullh-img {

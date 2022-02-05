@@ -10,7 +10,7 @@
 	let imgWidth = Math.round(width / count - (width / 100) * 15);
 
 	const url = (id) => {
-		return `${constants.picolaDomainImg}${id}?f=webp&q=80&h=${imgWidth}`;
+		return `${constants.picolaDomainImg}${id}?f=webp&q=${constants.imgQuality}&h=${imgWidth}`;
 	};
 </script>
 

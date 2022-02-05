@@ -3,13 +3,12 @@
 
 	export let value;
 	export let width;
+
+	const src = `${constants.picolaDomainImg}${value}?f=webp&q=${constants.imgQuality}&w=${width}`;
+	const alt = src;
 </script>
 
-<img
-	class="wide-img"
-	src={`${constants.picolaDomainImg}${value}?f=webp&q=100&w=${width}`}
-	alt={value}
-/>
+<img class="wide-img" {src} {alt} loading="lazy" />
 
 <style>
 	.wide-img {

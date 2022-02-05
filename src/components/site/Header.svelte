@@ -1,20 +1,26 @@
 <script>
-	//import Logo from '../../../static/logo.svelte';
-	// import { onMount } from 'svelte';
+	const logos = [
+		'logo-1',
+		'logo-2',
+		'logo-3',
+		'logo-4',
+		'logo-5',
+		'logo-6',
+		'logo-7',
+		'logo-8',
+		'logo-9'
+	];
 
-	// let w = null;
-	// let h = null;
+	const gerRandomLogo = () => {
+		const logo = logos[Math.floor(Math.random() * logos.length)];
+		return `/logos/${logo}.svg`;
+	};
 
-	// onMount(async () => {
-	// 	w = window.document.body.clientWidth;
-	// 	h = window.document.body.clientHeight;
-	// });
+	let logo = gerRandomLogo();
 </script>
 
 <div class="header">
-	<!-- <a href="/">Logo</a> -->
-	<img class="logo" src="/logo.svg" alt="logo" on:click={() => (window.location.href = '/')} />
-	<!-- <div class="logo" on:click={() => (window.location.href = '/')}>Logo</div> -->
+	<img class="logo" src={logo} alt="Logo" on:click={() => (window.location.href = '/')} />
 </div>
 
 <style>
@@ -24,13 +30,12 @@
 		left: 0;
 		color: whitesmoke;
 		font-size: 30px;
-		padding: 5px 10px;
+		padding: 10px 10px;
 		z-index: 10;
+		width: 200px;
 	}
-	.header:hover a,
 	.header:hover .logo {
 		left: 0px;
-		transition: 0.2s all;
 	}
 	a,
 	.logo {
@@ -40,5 +45,6 @@
 		color: cornflowerblue;
 		cursor: pointer;
 		width: 40px;
+		transition: 0.2s all;
 	}
 </style>

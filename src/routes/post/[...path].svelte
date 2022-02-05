@@ -43,16 +43,6 @@
 		post: Post,
 		folder: ListPost
 	};
-
-	console.log('pageType: ', pageType);
-
-	//const isLeaf = utils.isLeaf({ posts, path });
-
-	//console.log(isLeaf, path, posts);
 </script>
-
-<!-- {#if pageType && pageType.type === 'post'}
-	<svelte:component this={map[pageType.type]} post={pageType.payload} posts={pageType.payload} />
-{/if} -->
 
 <Post post={pageType.payload} />

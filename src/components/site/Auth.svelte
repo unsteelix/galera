@@ -2,18 +2,23 @@
 	import Cookies from 'js-cookie';
 
 	export let isAdmin;
+
 	let editMode = false;
+	const LoginBtnText = 'Login';
+	const LogoutBtnText = 'Logout';
 
 	const onInputChange = async (e) => {
 		const val = e.target.value;
 
-		const res = await fetch(`/api/auth/${val}`);
-		if (res.ok) {
-			const token = await res.text();
+		if (val.length >= 4) {
+			const res = await fetch(`/api/auth/${val}`);
+			if (res.ok) {
+				const token = await res.text();
 
-			Cookies.set('token', token, { expires: 7 });
-			isAdmin = true;
-			window.location.reload();
+				Cookies.set('token', token, { expires: 7 });
+				isAdmin = true;
+				window.location.reload();
+			}
 		}
 	};
 
@@ -31,14 +36,14 @@
 <div class="auth">
 	{#if isAdmin}
 		<div class="admin-mode">
-			<div class="logout-btn" on:click={logoutBtn}>logout</div>
+			<div class="logout-btn" on:click={logoutBtn}>{LogoutBtnText}</div>
 		</div>
 	{:else}
 		<div class="not-admin-mode" on:click={() => (editMode = !editMode)}>
 			{#if editMode}
 				<input on:keyup={onInputChange} use:initInput />
 			{:else}
-				<div class="login-btn">login</div>
+				<div class="login-btn">{LoginBtnText}</div>
 			{/if}
 		</div>
 	{/if}
@@ -53,7 +58,6 @@
 	}
 	.logout-btn,
 	.login-btn {
-		color: white;
 		cursor: pointer;
 	}
 	input {
