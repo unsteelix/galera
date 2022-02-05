@@ -134,24 +134,24 @@
 			: window.document.body.clientWidth;
 		height = window.document.body.clientHeight;
 	});
+
+	$: mainImgUrl = `${CONSTANTS.picolaDomainImg}${background}?f=webp&q=90`;
 </script>
 
-<!-- <svelte:window
-	on:resize|once={() => {
-		width = window.document.body.clientWidth;
-	}}
-/> -->
-<!-- w:{width}
-h:{height} -->
+<!-- 
+	предзагрузка обложки 
+-->
+<svelte:head>
+	<link rel="preload" as="image" href={mainImgUrl} type="image/webp" />
+</svelte:head>
 
 {#if width}
 	<div class="post">
-		<div class="cover">
-			<img
-				src={`${CONSTANTS.picolaDomainImg}${background}?f=webp&q=80&w=${width}&h=${height}`}
-				alt={background}
-				decoding="sync"
-			/>
+		<div
+			class="cover"
+			style={`background-image: url(${mainImgUrl}); background-position: center; background-size: cover; background-attachment: fixed;`}
+		>
+			<!-- <img src={mainImgUrl} alt={background} /> -->
 			{#if title}
 				<div class="title">{title}</div>
 			{/if}
