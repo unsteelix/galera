@@ -5,7 +5,7 @@
 	export let width;
 
 	const source = value.replace('cover', '').trim();
-	const url = `${constants.picolaDomainImg}${source}?f=webp&q=${constants.imgQuality}&w=${width}`;
+	const url = `${constants.picolaDomainImg}${source}?f=${constants.imgFormat}&q=${constants.imgQuality}&w=${width}`;
 </script>
 
 <div

@@ -5,7 +5,7 @@
 	export let width;
 
 	const source = value.replace('noTransform', '').replace('notransform', '').trim();
-	const src = `${constants.picolaDomainImg}${source}?f=webp&q=${constants.imgQuality}`;
+	const src = `${constants.picolaDomainImg}${source}?f=${constants.imgFormat}&q=${constants.imgQuality}`;
 	const alt = src;
 </script>
 

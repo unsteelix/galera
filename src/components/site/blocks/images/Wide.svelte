@@ -4,7 +4,7 @@
 	export let value;
 	export let width;
 
-	const src = `${constants.picolaDomainImg}${value}?f=webp&q=${constants.imgQuality}&w=${width}`;
+	const src = `${constants.picolaDomainImg}${value}?f=${constants.imgFormat}&q=${constants.imgQuality}&w=${width}`;
 	const alt = src;
 </script>
 

@@ -40,6 +40,7 @@ export const adminPass = '1234';
 export const token = 'qeirqjfjwef';
 
 export const imgQuality = 100;
+export const imgFormat = 'png';
 
 export default {
 	//quillOptions,
@@ -48,5 +49,6 @@ export default {
 	picolaDomainImg,
 	adminPass,
 	token,
-	imgQuality
+	imgQuality,
+	imgFormat
 };
